@@ -7,27 +7,28 @@
 
 import UIKit
 
-class BreedListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating, UISearchBarDelegate {
-    
+class BreedListViewController: UIViewController {
+
     @IBOutlet weak var tableView: UITableView!
     private var catbreeds: CatBreeds?
     private var catBreadsWithCategory: CatBreeds?
     private var filteredCatBreeds: CatBreeds?
     private var resultSearchController = UISearchController()
     private var service: CatService?
-    
     var isFiltering: Bool {
         return resultSearchController.isActive
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
         setupTableView()
         setupSearchBar()
     }
-    
-    func setupSearchBar() {
+}
+
+// MARK: - BreedListViewController+PrivateMethords
+extension BreedListViewController {
+    private func setupSearchBar() {
         resultSearchController = ({
             let controller = UISearchController(searchResultsController: nil)
             controller.searchResultsUpdater = self
@@ -41,7 +42,7 @@ class BreedListViewController: UIViewController, UITableViewDelegate, UITableVie
         })()
     }
     
-    func loadData() {
+    private func loadData() {
         self.service = CatService()
         if let service = service {
             Task(priority: .background) {
@@ -58,7 +59,7 @@ class BreedListViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
-    func setupTableView() {
+    private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         let breedNib = UINib(nibName: "BreedTableViewCell", bundle: Bundle.main)
@@ -66,30 +67,10 @@ class BreedListViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.register(breedNib, forCellReuseIdentifier: "com.chai.breedCell")
         tableView.register(filterNib, forCellReuseIdentifier: "com.chai.filterCell")
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isFiltering {
-            return (filteredCatBreeds?.count ?? 0)
-        } else {
-            return (catbreeds?.count ?? 0)
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let catbreeds = catbreeds else {
-            return BreedTableViewCell()
-        }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "com.chai.breedCell", for: indexPath) as! BreedTableViewCell
-        
-        if isFiltering {
-            cell.configure(with: filteredCatBreeds?[indexPath.row])
-        } else {
-            cell.configure(with: catbreeds[indexPath.row ])
-        }
-        
-        return cell
-    }
-    
+}
+
+// MARK: - BreedListViewController+Search
+extension BreedListViewController: UISearchResultsUpdating, UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         applySearch(searchText: searchBar.text ?? "", selectedScope: selectedScope)
     }
@@ -119,6 +100,32 @@ class BreedListViewController: UIViewController, UITableViewDelegate, UITableVie
     func updateSearchResults(for searchController: UISearchController) {
         applySearch(searchText: searchController.searchBar.text ?? "", selectedScope: searchController.searchBar.selectedScopeButtonIndex)
     }
+}
+
+// MARK: - BreedListViewController+TableView
+extension BreedListViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering {
+            return (filteredCatBreeds?.count ?? 0)
+        } else {
+            return (catbreeds?.count ?? 0)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let catbreeds = catbreeds else {
+            return BreedTableViewCell()
+        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "com.chai.breedCell", for: indexPath) as! BreedTableViewCell
+        
+        if isFiltering {
+            cell.configure(with: filteredCatBreeds?[indexPath.row])
+        } else {
+            cell.configure(with: catbreeds[indexPath.row ])
+        }
+        
+        return cell
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
@@ -127,13 +134,4 @@ class BreedListViewController: UIViewController, UITableViewDelegate, UITableVie
             return 140
         }
     }
-    
 }
-
-enum Categories: String, CaseIterable {
-        case  All,
-              Natural,
-              Hairless,
-              Allergic
-}
-

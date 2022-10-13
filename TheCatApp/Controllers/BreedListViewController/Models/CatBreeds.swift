@@ -75,4 +75,11 @@ struct Weight: Codable {
     let imperial, metric: String
 }
 
+// MARK: - Filter
+enum Categories: String, CaseIterable {
+        case  All,
+              Natural,
+              Hairless,
+              Allergic
+}
 typealias CatBreeds = [CatBreed]
