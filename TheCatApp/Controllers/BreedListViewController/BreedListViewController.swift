@@ -79,19 +79,19 @@ extension BreedListViewController: UISearchResultsUpdating, UISearchBarDelegate 
         filteredCatBreeds = catbreeds?.filter{
             (catBreed: CatBreed) -> Bool in
             let idx = Categories.allCases[selectedScope]
-            var contain = catBreed.name.lowercased().contains(searchText.lowercased())
+            var containsText = catBreed.name.lowercased().contains(searchText.lowercased())
             if searchText.count == 0 {
-                contain = true
+                containsText = true
             }
             switch idx {
             case .All:
-                return true && contain
+                return true && containsText
             case .Natural:
-                return catBreed.natural == 1 && contain
+                return catBreed.natural == 1 && containsText
             case .Hairless:
-                return catBreed.hairless == 1 && contain
+                return catBreed.hairless == 1 && containsText
             case .Allergic:
-                return catBreed.hypoallergenic == 1 && contain
+                return catBreed.hypoallergenic == 1 && containsText
             }
         }
         tableView.reloadData()
