@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="srL-kf-tBU">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -8,7 +8,23 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Breed List View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="hN2-2D-iSd">
+            <objects>
+                <navigationController id="srL-kf-tBU" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xFf-jH-T8o">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Mwx-ky-6N6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oz8-QZ-pdW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-243" y="54"/>
+        </scene>
+        <!--Breeds-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="BreedListViewController" customModule="TheCatApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,7 +33,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Kag-0e-cs5">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -30,13 +46,47 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Kag-0e-cs5" secondAttribute="trailing" id="zvn-25-t8I"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Breeds" id="CQa-q5-ikA"/>
                     <connections>
                         <outlet property="tableView" destination="Kag-0e-cs5" id="eyb-7F-HqG"/>
+                        <segue destination="ph4-vt-0xj" kind="show" identifier="showDetails" id="Gtu-nl-PAu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="18.840579710144929" y="53.571428571428569"/>
+            <point key="canvasLocation" x="928.98550724637687" y="53.571428571428569"/>
+        </scene>
+        <!--Breed Details-->
+        <scene sceneID="cx4-Ds-ZFi">
+            <objects>
+                <viewController id="ph4-vt-0xj" customClass="BreedDetailViewController" customModule="TheCatApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o81-IY-PE8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Paw-hH-3T3">
+                                <rect key="frame" x="0.0" y="88" width="414" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="n9V-Tq-Pkp"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ndP-GR-1QS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Paw-hH-3T3" firstAttribute="leading" secondItem="ndP-GR-1QS" secondAttribute="leading" id="WUj-vs-Abg"/>
+                            <constraint firstItem="Paw-hH-3T3" firstAttribute="top" secondItem="ndP-GR-1QS" secondAttribute="top" id="bgr-a4-6Oc"/>
+                            <constraint firstItem="ndP-GR-1QS" firstAttribute="trailing" secondItem="Paw-hH-3T3" secondAttribute="trailing" id="rVk-kt-xEV"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Breed Details" id="dEe-0A-DZV"/>
+                    <connections>
+                        <outlet property="imageView" destination="Paw-hH-3T3" id="Wph-ex-dOF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="54O-N5-LSr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1988" y="54"/>
         </scene>
     </scenes>
     <resources>
