@@ -25,6 +25,17 @@ class BreedListViewController: UIViewController {
         loadData()
         setupSearchBar()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetails" {
+            let indexPath = self.tableView.indexPathForSelectedRow!
+            let detailsVC = segue.destination as? BreedDetailViewController
+            let selectedShape = isFiltering ? filteredCatBreeds?[indexPath.row] : catbreeds?[indexPath.row]
+            guard let selectedShape = selectedShape, let detailsVC = detailsVC else { return }
+            detailsVC.catBreed = selectedShape
+            self.tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
 }
 
 // MARK: - BreedListViewController+PrivateMethords
