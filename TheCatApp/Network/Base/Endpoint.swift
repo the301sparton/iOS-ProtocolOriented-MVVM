@@ -1,8 +1,8 @@
 //
 //  RequestPath.swift
-//  RequestApp
+//  TheCatApp
 //
-//  Created by Victor Catão on 30/01/22.
+//  Created by Chaitanya1 D on 11/10/22.
 //
 
 protocol Endpoint {

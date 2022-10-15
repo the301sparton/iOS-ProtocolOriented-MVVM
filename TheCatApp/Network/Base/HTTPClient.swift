@@ -1,8 +1,8 @@
 //
 //  APIClient.swift
-//  RequestApp
+//  TheCatApp
 //
-//  Created by Victor Catão on 30/01/22.
+//  Created by Chaitanya1 D on 11/10/22.
 //
 
 import Foundation
@@ -15,12 +15,11 @@ extension HTTPClient {
     func sendRequest<T: Decodable>(
         endpoint: Endpoint,
         responseModel: T.Type
-    ) async -> Result<T, RequestError> { 
+    ) async -> Result<T, RequestError> {
         var urlComponents = URLComponents()
         urlComponents.scheme = endpoint.scheme
         urlComponents.host = endpoint.host
         urlComponents.path = endpoint.path
-        
         guard let url = urlComponents.url else {
             return .failure(.invalidURL)
         }

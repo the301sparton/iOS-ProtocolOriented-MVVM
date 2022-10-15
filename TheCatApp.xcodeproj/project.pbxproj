@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CA429B4628F8030200FBF6B8 /* UIImage+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA429B4528F8030200FBF6B8 /* UIImage+GIF.swift */; };
 		CA429B5428F80E7200FBF6B8 /* cat-loader.json in Resources */ = {isa = PBXBuildFile; fileRef = CA429B5328F80E7200FBF6B8 /* cat-loader.json */; };
 		CA429B5528F80E7200FBF6B8 /* cat-loader.json in Resources */ = {isa = PBXBuildFile; fileRef = CA429B5328F80E7200FBF6B8 /* cat-loader.json */; };
 		CA429B5928F878BF00FBF6B8 /* BreedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA429B5828F878BF00FBF6B8 /* BreedDetailViewController.swift */; };
@@ -20,6 +19,7 @@
 		CA429B6728F9BFB100FBF6B8 /* Mokable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA429B6528F9BFB100FBF6B8 /* Mokable.swift */; };
 		CA429B6B28F9C4A000FBF6B8 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = CA429B6A28F9C4A000FBF6B8 /* Lottie */; };
 		CA429B6E28F9C55300FBF6B8 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = CA429B6D28F9C55300FBF6B8 /* Lottie */; };
+		CA429B7328F9D9A100FBF6B8 /* FlagKit in Frameworks */ = {isa = PBXBuildFile; productRef = CA429B7228F9D9A100FBF6B8 /* FlagKit */; };
 		CA4847B328F5C65300E90EAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4847B228F5C65300E90EAD /* AppDelegate.swift */; };
 		CA4847B528F5C65300E90EAD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4847B428F5C65300E90EAD /* SceneDelegate.swift */; };
 		CA4847BA28F5C65300E90EAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA4847B828F5C65300E90EAD /* Main.storyboard */; };
@@ -63,7 +63,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CA429B4528F8030200FBF6B8 /* UIImage+GIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+GIF.swift"; sourceTree = "<group>"; };
 		CA429B5328F80E7200FBF6B8 /* cat-loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "cat-loader.json"; sourceTree = "<group>"; };
 		CA429B5828F878BF00FBF6B8 /* BreedDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailViewController.swift; sourceTree = "<group>"; };
 		CA429B5C28F8B03F00FBF6B8 /* CommonFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunctions.swift; sourceTree = "<group>"; };
@@ -98,6 +97,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA429B6B28F9C4A000FBF6B8 /* Lottie in Frameworks */,
+				CA429B7328F9D9A100FBF6B8 /* FlagKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +135,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CA429B7528FAB2EA00FBF6B8 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				CA429B5328F80E7200FBF6B8 /* cat-loader.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		CA4847A628F5C65300E90EAD = {
 			isa = PBXGroup;
 			children = (
@@ -162,11 +170,11 @@
 				CA4847B828F5C65300E90EAD /* Main.storyboard */,
 				CA4847BB28F5C65500E90EAD /* Assets.xcassets */,
 				CA4847BD28F5C65500E90EAD /* LaunchScreen.storyboard */,
-				CA429B5328F80E7200FBF6B8 /* cat-loader.json */,
 				CA4847C028F5C65500E90EAD /* Info.plist */,
+				CA429B7528FAB2EA00FBF6B8 /* Animations */,
+				CA48480C28F5C85600E90EAD /* Controllers */,
 				CA4847FD28F5C6D800E90EAD /* Network */,
 				CA48481A28F6B03300E90EAD /* Utilities */,
-				CA48480C28F5C85600E90EAD /* Controllers */,
 			);
 			path = TheCatApp;
 			sourceTree = "<group>";
@@ -213,7 +221,6 @@
 			children = (
 				CA4847E228F5C67600E90EAD /* Base */,
 				CA4847F528F5C6D300E90EAD /* Endpoints */,
-				CA4847F328F5C6D300E90EAD /* Services */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -249,7 +256,6 @@
 			children = (
 				CA48481B28F6B04900E90EAD /* ImageLoader.swift */,
 				CA48481F28F6B06B00E90EAD /* ImageCache.swift */,
-				CA429B4528F8030200FBF6B8 /* UIImage+GIF.swift */,
 				CA429B5C28F8B03F00FBF6B8 /* CommonFunctions.swift */,
 			);
 			path = Utilities;
@@ -258,6 +264,7 @@
 		CA48482428F6EBE500E90EAD /* BreedListViewController */ = {
 			isa = PBXGroup;
 			children = (
+				CA4847F328F5C6D300E90EAD /* Services */,
 				CA48480628F5C7D500E90EAD /* Models */,
 				CA48480D28F5E04000E90EAD /* View */,
 				CA48482528F6EC1400E90EAD /* BreedListViewController.swift */,
@@ -283,6 +290,7 @@
 			name = TheCatApp;
 			packageProductDependencies = (
 				CA429B6A28F9C4A000FBF6B8 /* Lottie */,
+				CA429B7228F9D9A100FBF6B8 /* FlagKit */,
 			);
 			productName = TheCatApp;
 			productReference = CA4847AF28F5C65300E90EAD /* TheCatApp.app */;
@@ -339,6 +347,7 @@
 			mainGroup = CA4847A628F5C65300E90EAD;
 			packageReferences = (
 				CA429B6928F9C4A000FBF6B8 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				CA429B7128F9D9A100FBF6B8 /* XCRemoteSwiftPackageReference "FlagKit" */,
 			);
 			productRefGroup = CA4847B028F5C65300E90EAD /* Products */;
 			projectDirPath = "";
@@ -384,7 +393,6 @@
 				CA4847F028F5C67600E90EAD /* Endpoint.swift in Sources */,
 				CA48482628F6EC1400E90EAD /* BreedListViewController.swift in Sources */,
 				CA429B5D28F8B03F00FBF6B8 /* CommonFunctions.swift in Sources */,
-				CA429B4628F8030200FBF6B8 /* UIImage+GIF.swift in Sources */,
 				CA48482028F6B06B00E90EAD /* ImageCache.swift in Sources */,
 				CA48480928F5C80E00E90EAD /* CatBreeds.swift in Sources */,
 				CA48481C28F6B04900E90EAD /* ImageLoader.swift in Sources */,
@@ -700,6 +708,14 @@
 				kind = branch;
 			};
 		};
+		CA429B7128F9D9A100FBF6B8 /* XCRemoteSwiftPackageReference "FlagKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/madebybowtie/FlagKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -712,6 +728,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CA429B6928F9C4A000FBF6B8 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		CA429B7228F9D9A100FBF6B8 /* FlagKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CA429B7128F9D9A100FBF6B8 /* XCRemoteSwiftPackageReference "FlagKit" */;
+			productName = FlagKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

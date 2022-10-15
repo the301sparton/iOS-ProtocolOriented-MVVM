@@ -1,8 +1,8 @@
 //
 //  RequestError.swift
-//  RequestApp
+//  TheCatApp
 //
-//  Created by Victor Catão on 18/02/22.
+//  Created by Chaitanya1 D on 11/10/22.
 //
 
 enum RequestError: Error {
