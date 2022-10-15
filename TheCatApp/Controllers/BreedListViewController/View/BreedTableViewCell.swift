@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import FlagKit
 import Combine
 
 class BreedTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var flagImage: UIImageView!
     @IBOutlet weak var breedDesc: UILabel!
     @IBOutlet weak var breedName: UILabel!
     @IBOutlet weak var breedImage: UIImageView!
@@ -45,6 +47,13 @@ class BreedTableViewCell: UITableViewCell {
     
     public func configure(with catBreed: CatBreed?) {
         if let catBreed = catBreed {
+            var countryCode = catBreed.countryCode
+            if countryCode == "SP" {
+                countryCode = "SG"
+            }
+            if let flag = Flag(countryCode: countryCode) {
+                flagImage.image = flag.originalImage
+            }
             breedName.text = catBreed.name
             breedDesc.text = catBreed.description
             cancellable = CommonFunctions.loadImage(for: catBreed).sink { [unowned self] image in showImage(image: image) }

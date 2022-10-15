@@ -146,7 +146,7 @@ extension BreedListViewController: UITableViewDelegate, UITableViewDataSource {
             return BreedTableViewCell()
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "com.chai.breedCell", for: indexPath) as! BreedTableViewCell
-        isFiltering ? cell.configure(with: filteredCatBreeds?[indexPath.row]) :             cell.configure(with: catbreeds[indexPath.row ])
+        isFiltering ? cell.configure(with: filteredCatBreeds?[indexPath.row]) : cell.configure(with: catbreeds[indexPath.row ])
         return cell
     }
     
