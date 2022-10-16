@@ -45,14 +45,12 @@ extension BreedDetailViewController {
         breedAge.text = catBreed.lifeSpan
         breedWeight.text = "\(catBreed.weight.metric) KG"
         breenOrigin.text = catBreed.origin
-        
         let tapsRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.toggleImageMode(_ :)))
-        tapsRecognizer.numberOfTapsRequired = 1
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(tapsRecognizer)
     }
     
-    @objc func toggleImageMode(_ sender: UITapGestureRecognizer) {
+    @objc private func toggleImageMode(_ sender: UITapGestureRecognizer) {
         if imageView.contentMode == .scaleAspectFill {
             imageView.contentMode = .scaleAspectFit
         } else {

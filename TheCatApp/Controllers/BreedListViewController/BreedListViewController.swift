@@ -74,6 +74,10 @@ extension BreedListViewController {
                     tableView.isHidden = false
                 case .failure(let error):
                     print(error)
+                    animationView?.stop()
+                    let animation = LottieAnimation.named("cat-404")
+                    animationView?.animation = animation
+                    animationView?.play()
                 }
             }
         }

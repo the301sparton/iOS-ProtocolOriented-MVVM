@@ -51,6 +51,8 @@
 		CA48482628F6EC1400E90EAD /* BreedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA48482528F6EC1400E90EAD /* BreedListViewController.swift */; };
 		CA48482728F6EC1400E90EAD /* BreedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA48482528F6EC1400E90EAD /* BreedListViewController.swift */; };
 		CAAA0EB528FC180800855568 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA4847B828F5C65300E90EAD /* Main.storyboard */; };
+		CAAA0EBA28FC8E8D00855568 /* cat-404.json in Resources */ = {isa = PBXBuildFile; fileRef = CAAA0EB928FC8E8D00855568 /* cat-404.json */; };
+		CAAA0EBB28FC8E8D00855568 /* cat-404.json in Resources */ = {isa = PBXBuildFile; fileRef = CAAA0EB928FC8E8D00855568 /* cat-404.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,7 @@
 		CA48481B28F6B04900E90EAD /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		CA48481F28F6B06B00E90EAD /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		CA48482528F6EC1400E90EAD /* BreedListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreedListViewController.swift; sourceTree = "<group>"; };
+		CAAA0EB928FC8E8D00855568 /* cat-404.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "cat-404.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +142,7 @@
 		CA429B7528FAB2EA00FBF6B8 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				CAAA0EB928FC8E8D00855568 /* cat-404.json */,
 				CA429B5328F80E7200FBF6B8 /* cat-loader.json */,
 			);
 			path = Animations;
@@ -369,6 +373,7 @@
 				CA429B6228F9BF5F00FBF6B8 /* CatBreeds.json in Resources */,
 				CA48481728F5E17600E90EAD /* BreedTableViewCell.xib in Resources */,
 				CA4847BF28F5C65500E90EAD /* LaunchScreen.storyboard in Resources */,
+				CAAA0EBA28FC8E8D00855568 /* cat-404.json in Resources */,
 				CA4847BC28F5C65500E90EAD /* Assets.xcassets in Resources */,
 				CA4847BA28F5C65300E90EAD /* Main.storyboard in Resources */,
 			);
@@ -378,6 +383,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAAA0EBB28FC8E8D00855568 /* cat-404.json in Resources */,
 				CAAA0EB528FC180800855568 /* Main.storyboard in Resources */,
 				CA48481828F5E17600E90EAD /* BreedTableViewCell.xib in Resources */,
 				CA429B6328F9BF5F00FBF6B8 /* CatBreeds.json in Resources */,
