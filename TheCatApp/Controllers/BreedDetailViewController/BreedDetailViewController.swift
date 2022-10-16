@@ -10,6 +10,13 @@ import Combine
 
 class BreedDetailViewController: UIViewController {
     
+    @IBOutlet weak var infoHolderView: UIView!
+    @IBOutlet weak var breedDesc: UILabel!
+    @IBOutlet weak var breenOrigin: UILabel!
+    @IBOutlet weak var breedWeight: UILabel!
+    @IBOutlet weak var breedTemprament: UILabel!
+    @IBOutlet weak var breedAge: UILabel!
+    @IBOutlet weak var breedName: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     private var cancellable: AnyCancellable?
     public var catBreed: CatBreed?
@@ -25,6 +32,13 @@ class BreedDetailViewController: UIViewController {
 extension BreedDetailViewController {
     private func setupUI(catBreed: CatBreed) {
         cancellable = CommonFunctions.loadImage(for: catBreed).sink { [unowned self] image in imageView.image = image }
-        navigationItem.title = catBreed.name
+        infoHolderView.clipsToBounds = true
+        infoHolderView.layer.cornerRadius = 12
+        breedName.text = catBreed.name
+        breedTemprament.text = catBreed.temperament
+        breedDesc.text = catBreed.description
+        breedAge.text = catBreed.lifeSpan
+        breedWeight.text = "\(catBreed.weight.metric) KG"
+        breenOrigin.text = catBreed.origin
     }
 }
