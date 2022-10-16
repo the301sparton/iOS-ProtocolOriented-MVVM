@@ -50,6 +50,7 @@
 		CA48482128F6B06B00E90EAD /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA48481F28F6B06B00E90EAD /* ImageCache.swift */; };
 		CA48482628F6EC1400E90EAD /* BreedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA48482528F6EC1400E90EAD /* BreedListViewController.swift */; };
 		CA48482728F6EC1400E90EAD /* BreedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA48482528F6EC1400E90EAD /* BreedListViewController.swift */; };
+		CAAA0EB528FC180800855568 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA4847B828F5C65300E90EAD /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -377,6 +378,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAAA0EB528FC180800855568 /* Main.storyboard in Resources */,
 				CA48481828F5E17600E90EAD /* BreedTableViewCell.xib in Resources */,
 				CA429B6328F9BF5F00FBF6B8 /* CatBreeds.json in Resources */,
 				CA429B5528F80E7200FBF6B8 /* cat-loader.json in Resources */,
