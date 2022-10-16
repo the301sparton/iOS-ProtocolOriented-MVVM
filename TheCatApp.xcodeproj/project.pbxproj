@@ -53,6 +53,7 @@
 		CAAA0EB528FC180800855568 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA4847B828F5C65300E90EAD /* Main.storyboard */; };
 		CAAA0EBA28FC8E8D00855568 /* cat-404.json in Resources */ = {isa = PBXBuildFile; fileRef = CAAA0EB928FC8E8D00855568 /* cat-404.json */; };
 		CAAA0EBB28FC8E8D00855568 /* cat-404.json in Resources */ = {isa = PBXBuildFile; fileRef = CAAA0EB928FC8E8D00855568 /* cat-404.json */; };
+		CAAA0EBF28FC948A00855568 /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = CAAA0EBE28FC948A00855568 /* Cosmos */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAAA0EBF28FC948A00855568 /* Cosmos in Frameworks */,
 				CA429B6B28F9C4A000FBF6B8 /* Lottie in Frameworks */,
 				CA429B7328F9D9A100FBF6B8 /* FlagKit in Frameworks */,
 			);
@@ -296,6 +298,7 @@
 			packageProductDependencies = (
 				CA429B6A28F9C4A000FBF6B8 /* Lottie */,
 				CA429B7228F9D9A100FBF6B8 /* FlagKit */,
+				CAAA0EBE28FC948A00855568 /* Cosmos */,
 			);
 			productName = TheCatApp;
 			productReference = CA4847AF28F5C65300E90EAD /* TheCatApp.app */;
@@ -353,6 +356,7 @@
 			packageReferences = (
 				CA429B6928F9C4A000FBF6B8 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				CA429B7128F9D9A100FBF6B8 /* XCRemoteSwiftPackageReference "FlagKit" */,
+				CAAA0EBD28FC948A00855568 /* XCRemoteSwiftPackageReference "Cosmos" */,
 			);
 			productRefGroup = CA4847B028F5C65300E90EAD /* Products */;
 			projectDirPath = "";
@@ -724,6 +728,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		CAAA0EBD28FC948A00855568 /* XCRemoteSwiftPackageReference "Cosmos" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/Cosmos.git";
+			requirement = {
+				kind = exactVersion;
+				version = 23.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -741,6 +753,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CA429B7128F9D9A100FBF6B8 /* XCRemoteSwiftPackageReference "FlagKit" */;
 			productName = FlagKit;
+		};
+		CAAA0EBE28FC948A00855568 /* Cosmos */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CAAA0EBD28FC948A00855568 /* XCRemoteSwiftPackageReference "Cosmos" */;
+			productName = Cosmos;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

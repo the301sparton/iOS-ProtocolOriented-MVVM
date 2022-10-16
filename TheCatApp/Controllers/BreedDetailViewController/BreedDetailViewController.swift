@@ -7,9 +7,14 @@
 
 import UIKit
 import Combine
+import Cosmos
 
 class BreedDetailViewController: UIViewController {
     
+    @IBOutlet weak var breedHealth: CosmosView!
+    @IBOutlet weak var breedIntelligence: CosmosView!
+    @IBOutlet weak var breedFriendliness: CosmosView!
+    @IBOutlet weak var breedAdaptability: CosmosView!
     @IBOutlet weak var infoHolderView: UIView!
     @IBOutlet weak var breedDesc: UILabel!
     @IBOutlet weak var breenOrigin: UILabel!
@@ -45,6 +50,10 @@ extension BreedDetailViewController {
         breedAge.text = catBreed.lifeSpan
         breedWeight.text = "\(catBreed.weight.metric) KG"
         breenOrigin.text = catBreed.origin
+        breedAdaptability.rating = Double(catBreed.adaptability)
+        breedHealth.rating = Double( 5 - catBreed.healthIssues)
+        breedIntelligence.rating = Double(catBreed.intelligence)
+        breedFriendliness.rating = Double(((catBreed.catFriendly ?? 0) + catBreed.dogFriendly + catBreed.childFriendly + catBreed.strangerFriendly) / 4)
         let tapsRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.toggleImageMode(_ :)))
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(tapsRecognizer)

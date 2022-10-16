@@ -180,12 +180,155 @@
                                     <constraint firstAttribute="bottom" secondItem="4NV-ff-T3I" secondAttribute="bottom" constant="25" id="xRI-ts-iY3"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desc" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQZ-Ge-ew8">
-                                <rect key="frame" x="32" y="415.5" width="350" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desc" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="LQZ-Ge-ew8">
+                                <rect key="frame" x="32" y="415.5" width="350" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="150" id="bmP-nf-yLZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" name="AccentColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZX-42-6WD">
+                                <rect key="frame" x="32" y="442.5" width="350" height="120"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adaptability" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0d-NP-dCG">
+                                        <rect key="frame" x="0.0" y="8" width="140" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dIp-EC-0qb" customClass="CosmosView" customModule="Cosmos">
+                                        <rect key="frame" x="0.0" y="35.5" width="140" height="20"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="9T1-Xa-Mkc"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                                <real key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="cat-filled"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="cat-empty"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friendliness" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSL-nu-84w">
+                                        <rect key="frame" x="202" y="8" width="140" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wfo-KH-2oM" customClass="CosmosView" customModule="Cosmos">
+                                        <rect key="frame" x="202" y="35.5" width="140" height="20"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="PGk-Z5-Ohd"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                                <real key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="cat-filled"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="cat-empty"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intelligence" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cho-mu-rGP">
+                                        <rect key="frame" x="0.0" y="75.5" width="140" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h3j-E0-bNq" customClass="CosmosView" customModule="Cosmos">
+                                        <rect key="frame" x="0.0" y="103" width="140" height="20"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="PJk-oa-GqR"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                                <real key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="cat-filled"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="cat-empty"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Health" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8c-8S-Ljs">
+                                        <rect key="frame" x="202" y="75.5" width="140" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sgP-MA-Pc9" customClass="CosmosView" customModule="Cosmos">
+                                        <rect key="frame" x="202" y="103" width="140" height="20"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="9AL-uq-od9"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                                <real key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="cat-filled"/>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="cat-empty"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Cho-mu-rGP" firstAttribute="leading" secondItem="B0d-NP-dCG" secondAttribute="leading" id="5gz-rM-rfP"/>
+                                    <constraint firstItem="wfo-KH-2oM" firstAttribute="top" secondItem="gSL-nu-84w" secondAttribute="bottom" constant="8" symbolic="YES" id="A2t-dF-dkF"/>
+                                    <constraint firstItem="i8c-8S-Ljs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Cho-mu-rGP" secondAttribute="trailing" symbolic="YES" id="BF0-1x-3jn"/>
+                                    <constraint firstItem="B0d-NP-dCG" firstAttribute="leading" secondItem="fZX-42-6WD" secondAttribute="leading" id="CvP-Ig-prY"/>
+                                    <constraint firstItem="B0d-NP-dCG" firstAttribute="width" secondItem="fZX-42-6WD" secondAttribute="width" multiplier="0.4" id="JyR-n1-caQ"/>
+                                    <constraint firstItem="i8c-8S-Ljs" firstAttribute="width" secondItem="gSL-nu-84w" secondAttribute="width" id="Kgy-ye-hMi"/>
+                                    <constraint firstItem="h3j-E0-bNq" firstAttribute="leading" secondItem="Cho-mu-rGP" secondAttribute="leading" id="Ljo-cB-ddV"/>
+                                    <constraint firstItem="dIp-EC-0qb" firstAttribute="width" secondItem="B0d-NP-dCG" secondAttribute="width" id="Mu3-dh-qMb"/>
+                                    <constraint firstItem="sgP-MA-Pc9" firstAttribute="width" secondItem="i8c-8S-Ljs" secondAttribute="width" id="PfA-uE-pM9"/>
+                                    <constraint firstItem="h3j-E0-bNq" firstAttribute="top" secondItem="Cho-mu-rGP" secondAttribute="bottom" constant="8" symbolic="YES" id="Q49-Ca-4da"/>
+                                    <constraint firstItem="Cho-mu-rGP" firstAttribute="top" secondItem="dIp-EC-0qb" secondAttribute="bottom" constant="20" id="Qmj-SX-f1g"/>
+                                    <constraint firstItem="wfo-KH-2oM" firstAttribute="width" secondItem="gSL-nu-84w" secondAttribute="width" id="Rz1-nG-kwI"/>
+                                    <constraint firstItem="gSL-nu-84w" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="B0d-NP-dCG" secondAttribute="trailing" symbolic="YES" id="YHU-Cs-fiW"/>
+                                    <constraint firstItem="h3j-E0-bNq" firstAttribute="width" secondItem="Cho-mu-rGP" secondAttribute="width" id="YVd-BY-F1L"/>
+                                    <constraint firstItem="gSL-nu-84w" firstAttribute="centerY" secondItem="B0d-NP-dCG" secondAttribute="centerY" id="ark-w6-HS7"/>
+                                    <constraint firstItem="Cho-mu-rGP" firstAttribute="width" secondItem="B0d-NP-dCG" secondAttribute="width" id="awD-fT-IdG"/>
+                                    <constraint firstItem="dIp-EC-0qb" firstAttribute="top" secondItem="B0d-NP-dCG" secondAttribute="bottom" constant="8" symbolic="YES" id="ffE-lK-lRh"/>
+                                    <constraint firstItem="sgP-MA-Pc9" firstAttribute="top" secondItem="i8c-8S-Ljs" secondAttribute="bottom" constant="8" symbolic="YES" id="h7l-R7-HOZ"/>
+                                    <constraint firstItem="gSL-nu-84w" firstAttribute="width" secondItem="fZX-42-6WD" secondAttribute="width" multiplier="0.4" id="hWq-xy-hAh"/>
+                                    <constraint firstItem="wfo-KH-2oM" firstAttribute="leading" secondItem="gSL-nu-84w" secondAttribute="leading" id="hge-dX-1wt"/>
+                                    <constraint firstAttribute="trailing" secondItem="gSL-nu-84w" secondAttribute="trailing" constant="8" id="iNa-1i-R9d"/>
+                                    <constraint firstItem="i8c-8S-Ljs" firstAttribute="centerY" secondItem="Cho-mu-rGP" secondAttribute="centerY" id="jZf-yz-YLK"/>
+                                    <constraint firstItem="i8c-8S-Ljs" firstAttribute="leading" secondItem="gSL-nu-84w" secondAttribute="leading" id="kgw-Ln-PNW"/>
+                                    <constraint firstItem="sgP-MA-Pc9" firstAttribute="leading" secondItem="i8c-8S-Ljs" secondAttribute="leading" id="khh-fk-amM"/>
+                                    <constraint firstAttribute="height" constant="120" id="mgH-CN-nr5"/>
+                                    <constraint firstAttribute="trailing" secondItem="i8c-8S-Ljs" secondAttribute="trailing" constant="8" id="oXb-MT-Vcs"/>
+                                    <constraint firstItem="B0d-NP-dCG" firstAttribute="top" secondItem="fZX-42-6WD" secondAttribute="top" constant="8" id="rl1-NB-LxO"/>
+                                    <constraint firstItem="dIp-EC-0qb" firstAttribute="leading" secondItem="B0d-NP-dCG" secondAttribute="leading" id="yaU-2D-lBr"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ndP-GR-1QS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -193,6 +336,8 @@
                             <constraint firstItem="LQZ-Ge-ew8" firstAttribute="top" secondItem="z4I-eZ-8eb" secondAttribute="bottom" constant="20" id="2KQ-1T-ghN"/>
                             <constraint firstItem="Ziq-zc-eNG" firstAttribute="top" secondItem="Paw-hH-3T3" secondAttribute="bottom" constant="20" id="5yY-tb-c0k"/>
                             <constraint firstItem="z4I-eZ-8eb" firstAttribute="centerX" secondItem="ndP-GR-1QS" secondAttribute="centerX" id="6EO-KL-1Ya"/>
+                            <constraint firstItem="fZX-42-6WD" firstAttribute="trailing" secondItem="z4I-eZ-8eb" secondAttribute="trailing" id="HOh-ra-djx"/>
+                            <constraint firstItem="fZX-42-6WD" firstAttribute="top" secondItem="LQZ-Ge-ew8" secondAttribute="bottom" constant="10" id="PNw-9C-tEb"/>
                             <constraint firstItem="Ziq-zc-eNG" firstAttribute="leading" secondItem="z4I-eZ-8eb" secondAttribute="leading" id="QKd-Mv-fzW"/>
                             <constraint firstItem="ndP-GR-1QS" firstAttribute="trailing" secondItem="Ziq-zc-eNG" secondAttribute="trailing" constant="20" id="Uq8-6k-mS0"/>
                             <constraint firstItem="Paw-hH-3T3" firstAttribute="leading" secondItem="ndP-GR-1QS" secondAttribute="leading" id="WUj-vs-Abg"/>
@@ -200,7 +345,9 @@
                             <constraint firstItem="Paw-hH-3T3" firstAttribute="top" secondItem="o81-IY-PE8" secondAttribute="top" id="bgr-a4-6Oc"/>
                             <constraint firstItem="LQZ-Ge-ew8" firstAttribute="trailing" secondItem="z4I-eZ-8eb" secondAttribute="trailing" id="emO-BD-wHr"/>
                             <constraint firstItem="z4I-eZ-8eb" firstAttribute="top" secondItem="uNL-oU-LGR" secondAttribute="bottom" constant="20" id="fsX-UB-INL"/>
+                            <constraint firstItem="fZX-42-6WD" firstAttribute="centerX" secondItem="z4I-eZ-8eb" secondAttribute="centerX" id="j6B-nS-r05"/>
                             <constraint firstItem="uNL-oU-LGR" firstAttribute="trailing" secondItem="Ziq-zc-eNG" secondAttribute="trailing" id="jCa-Xn-gX5"/>
+                            <constraint firstItem="fZX-42-6WD" firstAttribute="leading" secondItem="z4I-eZ-8eb" secondAttribute="leading" id="mxm-RZ-nFG"/>
                             <constraint firstItem="ndP-GR-1QS" firstAttribute="trailing" secondItem="Paw-hH-3T3" secondAttribute="trailing" id="rVk-kt-xEV"/>
                             <constraint firstItem="uNL-oU-LGR" firstAttribute="top" secondItem="Ziq-zc-eNG" secondAttribute="bottom" constant="5" id="wsg-xO-Zhr"/>
                             <constraint firstItem="LQZ-Ge-ew8" firstAttribute="leading" secondItem="z4I-eZ-8eb" secondAttribute="leading" id="ywT-Ax-R94"/>
@@ -208,8 +355,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="ihD-pN-Fhl"/>
                     <connections>
+                        <outlet property="breedAdaptability" destination="dIp-EC-0qb" id="2BI-VS-oIB"/>
                         <outlet property="breedAge" destination="zxm-rT-n8u" id="zEF-Rg-ehX"/>
                         <outlet property="breedDesc" destination="LQZ-Ge-ew8" id="dEP-ja-aZY"/>
+                        <outlet property="breedFriendliness" destination="wfo-KH-2oM" id="YE3-QQ-B5Z"/>
+                        <outlet property="breedHealth" destination="sgP-MA-Pc9" id="dcQ-1c-LKg"/>
+                        <outlet property="breedIntelligence" destination="h3j-E0-bNq" id="Clg-gI-T49"/>
                         <outlet property="breedName" destination="Ziq-zc-eNG" id="nv8-8l-ui7"/>
                         <outlet property="breedTemprament" destination="uNL-oU-LGR" id="AfW-nR-QUe"/>
                         <outlet property="breedWeight" destination="Dky-EV-2aU" id="NA3-lp-foa"/>
@@ -220,10 +371,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="54O-N5-LSr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1988" y="54"/>
+            <point key="canvasLocation" x="1986.9565217391305" y="53.571428571428569"/>
         </scene>
     </scenes>
     <resources>
+        <image name="cat-empty" width="512" height="512"/>
+        <image name="cat-filled" width="512" height="512"/>
         <namedColor name="AccentColor">
             <color red="0.28999999165534973" green="0.29399999976158142" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
