@@ -128,6 +128,16 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		CA21935928FDF39D00C86FBD /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				CA4847B828F5C65300E90EAD /* Main.storyboard */,
+				CA4847BB28F5C65500E90EAD /* Assets.xcassets */,
+				CA4847BD28F5C65500E90EAD /* LaunchScreen.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		CA429B5728F8788700FBF6B8 /* BreedDetailViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,10 +194,8 @@
 			children = (
 				CA4847B228F5C65300E90EAD /* AppDelegate.swift */,
 				CA4847B428F5C65300E90EAD /* SceneDelegate.swift */,
-				CA4847B828F5C65300E90EAD /* Main.storyboard */,
-				CA4847BB28F5C65500E90EAD /* Assets.xcassets */,
-				CA4847BD28F5C65500E90EAD /* LaunchScreen.storyboard */,
 				CA4847C028F5C65500E90EAD /* Info.plist */,
+				CA21935928FDF39D00C86FBD /* UI */,
 				CA429B7528FAB2EA00FBF6B8 /* Animations */,
 				CA48480C28F5C85600E90EAD /* Controllers */,
 				CA4847FD28F5C6D800E90EAD /* Network */,
