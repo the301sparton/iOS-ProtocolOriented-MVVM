@@ -236,6 +236,7 @@
 		CA4847FD28F5C6D800E90EAD /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				CA4847F328F5C6D300E90EAD /* Services */,
 				CA4847E228F5C67600E90EAD /* Base */,
 				CA4847F528F5C6D300E90EAD /* Endpoints */,
 			);
@@ -282,7 +283,6 @@
 			isa = PBXGroup;
 			children = (
 				CA21935628FDD7EC00C86FBD /* ViewModel */,
-				CA4847F328F5C6D300E90EAD /* Services */,
 				CA48480628F5C7D500E90EAD /* Models */,
 				CA48480D28F5E04000E90EAD /* View */,
 				CA48482528F6EC1400E90EAD /* BreedListViewController.swift */,
