@@ -11,26 +11,25 @@ import Lottie
 class BreedListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    private var catbreeds: CatBreeds?
-    private var filteredCatBreeds: CatBreeds?
     private var resultSearchController = UISearchController()
     private var animationView: LottieAnimationView?
-    private var service: CatService?
-    var isFiltering: Bool {
-        return resultSearchController.isActive
-    }
+    private var catBreeds: CatBreeds?
+    private var viewModel: BreedListViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = BreedListViewModel(service: CatService())
+        viewModel?.delegate = self
         setupViews()
-        loadData()
         setupSearchBar()
+        viewModel?.loadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetails" {
             let indexPath = self.tableView.indexPathForSelectedRow!
             let detailsVC = segue.destination as? BreedDetailViewController
-            let selectedShape = isFiltering ? filteredCatBreeds?[indexPath.row] : catbreeds?[indexPath.row]
+            let selectedShape = catBreeds?[indexPath.row]
             guard let selectedShape = selectedShape, let detailsVC = detailsVC else { return }
             detailsVC.catBreed = selectedShape
             self.tableView.deselectRow(at: indexPath, animated: true)
@@ -58,31 +57,6 @@ extension BreedListViewController {
         })()
     }
     
-    private func loadData() {
-        self.service = CatService()
-        tableView.isHidden = true
-        animationView?.play()
-        if let service = service {
-            Task(priority: .background) {
-                let result = await service.getAllBreeds()
-                switch result {
-                case .success(let catBreeds):
-                    self.catbreeds = catBreeds
-                    tableView.reloadData()
-                    animationView?.stop()
-                    animationView?.isHidden = true
-                    tableView.isHidden = false
-                case .failure(let error):
-                    print(error)
-                    animationView?.stop()
-                    let animation = LottieAnimation.named("cat-404")
-                    animationView?.animation = animation
-                    animationView?.play()
-                }
-            }
-        }
-    }
-    
     private func setupViews() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -92,41 +66,39 @@ extension BreedListViewController {
         animationView = LottieAnimationView(animation: animation)
         guard let animationView = animationView else { return }
         animationView.loopMode = .loop
+        animationView.play()
         animationView.frame = CGRect(x: view.bounds.midX - 150, y: view.bounds.midY - 150, width: 300, height: 300)
         view.addSubview(animationView)
+    }
+}
+
+// MARK: - BreedListViewController+BreedListUpdateDelegate
+extension BreedListViewController: BreedListUpdateDelegate {
+    func tableViewDataUpdated(catBreeds: CatBreeds?) {
+        animationView?.stop()
+        self.catBreeds = catBreeds
+        if let catBreedsList = catBreeds, !catBreedsList.isEmpty {
+            self.animationView?.isHidden = true
+            self.tableView.isHidden = false
+        } else {
+            let animation = LottieAnimation.named("cat-404")
+            animationView?.animation = animation
+            animationView?.play()
+            self.animationView?.isHidden = false
+            self.tableView.isHidden = true
+        }
+        self.tableView.reloadData()
     }
 }
 
 // MARK: - BreedListViewController+Search
 extension BreedListViewController: UISearchResultsUpdating, UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        applySearch(searchText: searchBar.text ?? "", selectedScope: selectedScope)
-    }
-    
-    func applySearch(searchText: String, selectedScope: Int) {
-        filteredCatBreeds = catbreeds?.filter{
-            (catBreed: CatBreed) -> Bool in
-            let selectedFilter = Categories.allCases[selectedScope]
-            var containsText = catBreed.name.lowercased().contains(searchText.lowercased())
-            if searchText.count == 0 {
-                containsText = true
-            }
-            switch selectedFilter {
-            case .All:
-                return true && containsText
-            case .Natural:
-                return catBreed.natural == 1 && containsText
-            case .Hairless:
-                return catBreed.hairless == 1 && containsText
-            case .Allergic:
-                return catBreed.hypoallergenic == 1 && containsText
-            }
-        }
-        tableView.reloadData()
+        viewModel?.applySearch(searchText: searchBar.text ?? "", selectedScope: selectedScope)
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-        applySearch(searchText: searchController.searchBar.text ?? "", selectedScope: searchController.searchBar.selectedScopeButtonIndex)
+        viewModel?.applySearch(searchText: searchController.searchBar.text ?? "", selectedScope: searchController.searchBar.selectedScopeButtonIndex)
     }
 }
 
@@ -138,19 +110,15 @@ extension BreedListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isFiltering {
-            return (filteredCatBreeds?.count ?? 0)
-        } else {
-            return (catbreeds?.count ?? 0)
-        }
+        return catBreeds?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let catbreeds = catbreeds else {
+        guard let catbreeds = catBreeds else {
             return BreedTableViewCell()
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "com.chai.breedCell", for: indexPath) as! BreedTableViewCell
-        isFiltering ? cell.configure(with: filteredCatBreeds?[indexPath.row]) : cell.configure(with: catbreeds[indexPath.row ])
+        cell.configure(with: catbreeds[indexPath.row])
         return cell
     }
     

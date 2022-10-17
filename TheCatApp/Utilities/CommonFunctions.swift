@@ -15,7 +15,7 @@ struct CommonFunctions {
             if let url = URL(string: catBreed.image?.url ?? "") {
                 return ImageLoader.shared.loadImage(from: url)
             } else {
-                 let url = URL(string: "https://img.freepik.com/premium-vector/cute-sad-cat-sitting-rain-cloud-cartoon-vector-icon-illustration-animal-nature-icon-isolated_138676-5215.jpg?w=1480")
+                let url = URL(string: "https://cdn.searchenginejournal.com/wp-content/uploads/2020/08/404-pages-sej-5f3ee7ff4966b-1520x800.png")
                 return ImageLoader.shared.loadImage(from: url!)
 
             }

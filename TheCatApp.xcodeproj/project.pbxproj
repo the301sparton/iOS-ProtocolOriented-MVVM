@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA21935828FDD80200C86FBD /* BreedListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA21935728FDD80200C86FBD /* BreedListViewModel.swift */; };
 		CA429B5428F80E7200FBF6B8 /* cat-loader.json in Resources */ = {isa = PBXBuildFile; fileRef = CA429B5328F80E7200FBF6B8 /* cat-loader.json */; };
 		CA429B5528F80E7200FBF6B8 /* cat-loader.json in Resources */ = {isa = PBXBuildFile; fileRef = CA429B5328F80E7200FBF6B8 /* cat-loader.json */; };
 		CA429B5928F878BF00FBF6B8 /* BreedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA429B5828F878BF00FBF6B8 /* BreedDetailViewController.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CA21935728FDD80200C86FBD /* BreedListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedListViewModel.swift; sourceTree = "<group>"; };
 		CA429B5328F80E7200FBF6B8 /* cat-loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "cat-loader.json"; sourceTree = "<group>"; };
 		CA429B5828F878BF00FBF6B8 /* BreedDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailViewController.swift; sourceTree = "<group>"; };
 		CA429B5C28F8B03F00FBF6B8 /* CommonFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunctions.swift; sourceTree = "<group>"; };
@@ -118,6 +120,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA21935628FDD7EC00C86FBD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CA21935728FDD80200C86FBD /* BreedListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		CA429B5728F8788700FBF6B8 /* BreedDetailViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +281,7 @@
 		CA48482428F6EBE500E90EAD /* BreedListViewController */ = {
 			isa = PBXGroup;
 			children = (
+				CA21935628FDD7EC00C86FBD /* ViewModel */,
 				CA4847F328F5C6D300E90EAD /* Services */,
 				CA48480628F5C7D500E90EAD /* Models */,
 				CA48480D28F5E04000E90EAD /* View */,
@@ -409,6 +420,7 @@
 				CA48480928F5C80E00E90EAD /* CatBreeds.swift in Sources */,
 				CA48481C28F6B04900E90EAD /* ImageLoader.swift in Sources */,
 				CA4847E728F5C67600E90EAD /* HTTPMethod.swift in Sources */,
+				CA21935828FDD80200C86FBD /* BreedListViewModel.swift in Sources */,
 				CA4847EA28F5C67600E90EAD /* HTTPClient.swift in Sources */,
 				CA4847ED28F5C67600E90EAD /* RequestError.swift in Sources */,
 				CA4847FF28F5C71500E90EAD /* CatService.swift in Sources */,
