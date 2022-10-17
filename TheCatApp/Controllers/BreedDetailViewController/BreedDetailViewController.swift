@@ -8,9 +8,11 @@
 import UIKit
 import Combine
 import Cosmos
+import FlagKit
 
 class BreedDetailViewController: UIViewController {
     
+    @IBOutlet weak var originFlagImageView: UIImageView!
     @IBOutlet weak var breedHealth: CosmosView!
     @IBOutlet weak var breedIntelligence: CosmosView!
     @IBOutlet weak var breedFriendliness: CosmosView!
@@ -54,6 +56,13 @@ extension BreedDetailViewController {
         breedHealth.rating = Double( 5 - catBreed.healthIssues)
         breedIntelligence.rating = Double(catBreed.intelligence)
         breedFriendliness.rating = Double(((catBreed.catFriendly ?? 0) + catBreed.dogFriendly + catBreed.childFriendly + catBreed.strangerFriendly) / 4)
+        var countryCode = catBreed.countryCode
+        if countryCode == "SP" {
+            countryCode = "SG"
+        }
+        if let flag = Flag(countryCode: countryCode) {
+            originFlagImageView.image = flag.originalImage
+        }
         let tapsRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.toggleImageMode(_ :)))
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(tapsRecognizer)
