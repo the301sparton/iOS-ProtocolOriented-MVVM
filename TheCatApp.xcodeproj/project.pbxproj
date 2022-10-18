@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		CA21935828FDD80200C86FBD /* BreedListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA21935728FDD80200C86FBD /* BreedListViewModel.swift */; };
+		CA3E153028FE8595001243DB /* BreedListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA21935728FDD80200C86FBD /* BreedListViewModel.swift */; };
+		CA3E153128FE96FF001243DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4847B428F5C65300E90EAD /* SceneDelegate.swift */; };
+		CA3E153228FE9702001243DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4847B228F5C65300E90EAD /* AppDelegate.swift */; };
 		CA429B5428F80E7200FBF6B8 /* cat-loader.json in Resources */ = {isa = PBXBuildFile; fileRef = CA429B5328F80E7200FBF6B8 /* cat-loader.json */; };
 		CA429B5528F80E7200FBF6B8 /* cat-loader.json in Resources */ = {isa = PBXBuildFile; fileRef = CA429B5328F80E7200FBF6B8 /* cat-loader.json */; };
 		CA429B5928F878BF00FBF6B8 /* BreedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA429B5828F878BF00FBF6B8 /* BreedDetailViewController.swift */; };
@@ -16,7 +19,6 @@
 		CA429B5E28F8B03F00FBF6B8 /* CommonFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA429B5C28F8B03F00FBF6B8 /* CommonFunctions.swift */; };
 		CA429B6228F9BF5F00FBF6B8 /* CatBreeds.json in Resources */ = {isa = PBXBuildFile; fileRef = CA429B6128F9BF5F00FBF6B8 /* CatBreeds.json */; };
 		CA429B6328F9BF5F00FBF6B8 /* CatBreeds.json in Resources */ = {isa = PBXBuildFile; fileRef = CA429B6128F9BF5F00FBF6B8 /* CatBreeds.json */; };
-		CA429B6628F9BFB100FBF6B8 /* Mokable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA429B6528F9BFB100FBF6B8 /* Mokable.swift */; };
 		CA429B6728F9BFB100FBF6B8 /* Mokable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA429B6528F9BFB100FBF6B8 /* Mokable.swift */; };
 		CA429B6B28F9C4A000FBF6B8 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = CA429B6A28F9C4A000FBF6B8 /* Lottie */; };
 		CA429B6E28F9C55300FBF6B8 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = CA429B6D28F9C55300FBF6B8 /* Lottie */; };
@@ -437,7 +439,6 @@
 				CA4847B328F5C65300E90EAD /* AppDelegate.swift in Sources */,
 				CA4847B528F5C65300E90EAD /* SceneDelegate.swift in Sources */,
 				CA48481428F5E17600E90EAD /* BreedTableViewCell.swift in Sources */,
-				CA429B6628F9BFB100FBF6B8 /* Mokable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,12 +453,15 @@
 				CA48481D28F6B04900E90EAD /* ImageLoader.swift in Sources */,
 				CA429B5A28F878BF00FBF6B8 /* BreedDetailViewController.swift in Sources */,
 				CA48480428F5C7B200E90EAD /* CatEndpoint.swift in Sources */,
+				CA3E153128FE96FF001243DB /* SceneDelegate.swift in Sources */,
 				CA48482728F6EC1400E90EAD /* BreedListViewController.swift in Sources */,
 				CA4847EE28F5C67600E90EAD /* RequestError.swift in Sources */,
 				CA4847E828F5C67600E90EAD /* HTTPMethod.swift in Sources */,
 				CA4847CA28F5C65500E90EAD /* TheCatAppTests.swift in Sources */,
+				CA3E153228FE9702001243DB /* AppDelegate.swift in Sources */,
 				CA429B6728F9BFB100FBF6B8 /* Mokable.swift in Sources */,
 				CA4847EB28F5C67600E90EAD /* HTTPClient.swift in Sources */,
+				CA3E153028FE8595001243DB /* BreedListViewModel.swift in Sources */,
 				CA4847F128F5C67600E90EAD /* Endpoint.swift in Sources */,
 				CA48480A28F5C80E00E90EAD /* CatBreeds.swift in Sources */,
 			);

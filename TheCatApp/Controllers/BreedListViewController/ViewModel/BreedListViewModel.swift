@@ -9,10 +9,10 @@ import Foundation
 class BreedListViewModel {
     private var catbreeds: CatBreeds?
     private var filteredCatBreeds: CatBreeds?
-    private var service: CatService?
+    private var service: CatServiceable?
     weak var delegate: BreedListUpdateDelegate?
     
-    init(service: CatService) {
+    init(service: CatServiceable) {
         self.service = service 
     }
     
@@ -35,19 +35,18 @@ class BreedListViewModel {
                 return catBreed.hypoallergenic == 1 && containsText
             }
         }
-        delegate?.tableViewDataUpdated(catBreeds: filteredCatBreeds!)
+        delegate?.tableViewDataUpdated(catBreeds: self.filteredCatBreeds)
     }
     
     func loadData() {
-        service = CatService()
         if let service = service {
             Task(priority: .background) {
                 let result = await service.getAllBreeds()
                 switch result {
                 case .success(let catBreeds):
                     self.catbreeds = catBreeds
-                    DispatchQueue.main.async {
-                        self.delegate?.tableViewDataUpdated(catBreeds: catBreeds)
+                    DispatchQueue.main.sync {
+                        self.delegate?.tableViewDataUpdated(catBreeds: self.catbreeds)
                     }
                 case .failure(let error):
                     print(error)
