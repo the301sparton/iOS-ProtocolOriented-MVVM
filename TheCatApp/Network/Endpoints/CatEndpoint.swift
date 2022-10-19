@@ -1,15 +1,15 @@
 //
-//  MoviesEndpoint.swift
+//  CatService.swift
 //  RequestApp
 //
 //  Created by Victor Catão on 18/02/22.
 //
 
-enum MoviesEndpoint {
+enum CatEndpoint {
     case topRated
 }
 
-extension MoviesEndpoint: Endpoint {
+extension CatEndpoint: Endpoint {
     var path: String {
         switch self {
         case .topRated:

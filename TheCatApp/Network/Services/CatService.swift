@@ -1,5 +1,5 @@
 //
-//  MoviesService.swift
+//  CatService.swift
 //  TheCatApp
 //
 //  Created by Chaitanya1 D on 11/10/22.
@@ -14,6 +14,6 @@ protocol CatServiceable {
 
 struct CatService: HTTPClient, CatServiceable {
     func getAllBreeds() async -> Result<CatBreeds, RequestError> {
-        return await sendRequest(endpoint: MoviesEndpoint.topRated, responseModel: CatBreeds.self)
+        return await sendRequest(endpoint: CatEndpoint.topRated, responseModel: CatBreeds.self)
     }
 }
