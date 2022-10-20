@@ -19,7 +19,7 @@ public final class ImageLoader {
         return queue
     }()
 
-    public init(cache: ImageCacheType = ImageCache()) {
+    private init(cache: ImageCacheType = ImageCache()) {
         self.cache = cache
     }
 

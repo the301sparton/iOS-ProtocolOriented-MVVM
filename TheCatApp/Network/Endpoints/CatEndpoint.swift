@@ -6,27 +6,27 @@
 //
 
 enum CatEndpoint {
-    case topRated
+    case getCatBreeds
 }
 
 extension CatEndpoint: Endpoint {
     var path: String {
         switch self {
-        case .topRated:
+        case .getCatBreeds:
             return "/v1/breeds"
         }
     }
 
     var method: RequestMethod {
         switch self {
-        case .topRated:
+        case .getCatBreeds:
             return .get
         }
     }
 
     var header: [String: String]? {
         switch self {
-        case .topRated:
+        case .getCatBreeds:
             return [
                 "Content-Type": "application/json;charset=utf-8"
             ]
@@ -35,7 +35,7 @@ extension CatEndpoint: Endpoint {
     
     var body: [String: String]? {
         switch self {
-        case .topRated:
+        case .getCatBreeds:
             return nil
         }
     }

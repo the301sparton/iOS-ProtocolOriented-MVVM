@@ -14,6 +14,6 @@ protocol CatServiceable {
 
 struct CatService: HTTPClient, CatServiceable {
     func getAllBreeds() async -> Result<CatBreeds, RequestError> {
-        return await sendRequest(endpoint: CatEndpoint.topRated, responseModel: CatBreeds.self)
+        return await sendRequest(endpoint: CatEndpoint.getCatBreeds, responseModel: CatBreeds.self)
     }
 }
