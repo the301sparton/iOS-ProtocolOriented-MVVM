@@ -38,19 +38,15 @@ class BreedListViewModel {
         delegate?.tableViewDataUpdated(catBreeds: self.filteredCatBreeds)
     }
     
-    func loadData() {
+    func loadData() async {
         if let service = service {
-            Task(priority: .background) {
-                let result = await service.getAllBreeds()
-                switch result {
-                case .success(let catBreeds):
-                    self.catbreeds = catBreeds
-                    DispatchQueue.main.sync {
-                        self.delegate?.tableViewDataUpdated(catBreeds: self.catbreeds)
-                    }
-                case .failure(let error):
-                    print(error)
-                }
+            let result = await service.getAllBreeds()
+            switch result {
+            case .success(let catBreeds):
+                self.catbreeds = catBreeds
+                self.delegate?.tableViewDataUpdated(catBreeds: self.catbreeds)
+            case .failure(let error):
+                print(error)
             }
         }
     }

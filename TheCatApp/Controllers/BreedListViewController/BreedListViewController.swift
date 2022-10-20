@@ -22,7 +22,9 @@ class BreedListViewController: UIViewController {
         viewModel?.delegate = self
         setupViews()
         setupSearchBar()
-        viewModel?.loadData()
+        Task(priority: .background) {
+            await viewModel?.loadData()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -75,19 +77,22 @@ extension BreedListViewController {
 // MARK: - BreedListViewController+BreedListUpdateDelegate
 extension BreedListViewController: BreedListUpdateDelegate {
     func tableViewDataUpdated(catBreeds: CatBreeds?) {
-        animationView?.stop()
-        self.catBreeds = catBreeds
-        if let catBreedsList = catBreeds, !catBreedsList.isEmpty {
-            self.animationView?.isHidden = true
-            self.tableView.isHidden = false
-        } else {
-            let animation = LottieAnimation.named("cat-404")
-            animationView?.animation = animation
-            animationView?.play()
-            self.animationView?.isHidden = false
-            self.tableView.isHidden = true
+        DispatchQueue.main.async {
+            self.animationView?.stop()
+            self.catBreeds = catBreeds
+            if let catBreedsList = catBreeds, !catBreedsList.isEmpty {
+                self.animationView?.isHidden = true
+                self.tableView.isHidden = false
+            } else {
+                let animation = LottieAnimation.named("cat-404")
+                self.animationView?.animation = animation
+                self.animationView?.play()
+                self.animationView?.isHidden = false
+                self.tableView.isHidden = true
+            }
+            self.tableView.reloadData()
         }
-        self.tableView.reloadData()
+        
     }
 }
 

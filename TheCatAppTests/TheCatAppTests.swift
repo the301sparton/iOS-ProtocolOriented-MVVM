@@ -18,10 +18,6 @@ class TheCatAppTests: XCTestCase {
         let storyBoard = UIStoryboard(name: "Main", bundle: bundle)
         vc = storyBoard.instantiateViewController(withIdentifier: "BreedListViewController") as? BreedListViewController
         _ = vc.view
-        let serviceMock = CatsServiceMock()
-        sut = BreedListViewModel(service: serviceMock)
-        delegate = MockBreedListUpdateDelegate()
-        sut.delegate = delegate
         try super.setUpWithError()
     }
     
@@ -31,14 +27,17 @@ class TheCatAppTests: XCTestCase {
         try super.tearDownWithError()
     }
     
-    func test_BreedListLoadDataAndSearch() {
+    func test_BreedListLoadDataAndSearch() async {
         // When
-        sut.loadData()
+        let serviceMock = CatsServiceMock()
+        sut = BreedListViewModel(service: serviceMock)
+        delegate = MockBreedListUpdateDelegate()
+        sut.delegate = delegate
+        await sut.loadData()
         // Then
-        Thread.sleep(forTimeInterval: 1)
         XCTAssertNotNil(delegate.catBreeds)
-        sut.applySearch(searchText: "A", selectedScope: 0)
-        XCTAssertTrue(delegate.catBreeds?.count ?? 0 > 0)
+        sut.applySearch(searchText: "Ab", selectedScope: 0)
+        XCTAssertEqual(delegate.catBreeds?.count ?? 0, 2)
     }
     
     
@@ -71,6 +70,7 @@ final class MockBreedListUpdateDelegate: BreedListUpdateDelegate {
     var catBreeds: CatBreeds? = []
     func tableViewDataUpdated(catBreeds: CatBreeds?) {
         self.catBreeds = catBreeds
+        print("count \(self.catBreeds?.count)")
     }
 }
 
