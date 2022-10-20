@@ -92,7 +92,6 @@ extension BreedListViewController: BreedListUpdateDelegate {
             }
             self.tableView.reloadData()
         }
-        
     }
 }
 
