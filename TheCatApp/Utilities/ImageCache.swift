@@ -25,32 +25,29 @@ public protocol ImageCacheType: AnyObject {
 
 public final class ImageCache: ImageCacheType {
 
-    // 1st level cache, that contains encoded images
-    private lazy var imageCache: NSCache<AnyObject, AnyObject> = {
-        let cache = NSCache<AnyObject, AnyObject>()
-        cache.countLimit = config.countLimit
-        return cache
-    }()
-    // 2nd level cache, that contains decoded images
+    // 1st level cache, that contains decoded images
     private lazy var decodedImageCache: NSCache<AnyObject, AnyObject> = {
         let cache = NSCache<AnyObject, AnyObject>()
         cache.totalCostLimit = config.memoryLimit
         return cache
     }()
+    
+    // 2nd level cache, that contains encoded images
+    private lazy var imageCache: NSCache<AnyObject, AnyObject> = {
+        let cache = NSCache<AnyObject, AnyObject>()
+        cache.countLimit = config.countLimit
+        return cache
+    }()
     private let lock = NSLock()
     private let config: Config
-
     public struct Config {
         public let countLimit: Int
         public let memoryLimit: Int
-
         public static let defaultConfig = Config(countLimit: 100, memoryLimit: 1024 * 1024 * 100) // 100 MB
     }
-
     public init(config: Config = Config.defaultConfig) {
         self.config = config
     }
-
     public func image(for url: URL) -> UIImage? {
         lock.lock(); defer { lock.unlock() }
         // the best case scenario -> there is a decoded image in memory
@@ -69,7 +66,6 @@ public final class ImageCache: ImageCacheType {
     public func insertImage(_ image: UIImage?, for url: URL) {
         guard let image = image else { return removeImage(for: url) }
         let decompressedImage = image.decodedImage()
-
         lock.lock(); defer { lock.unlock() }
         imageCache.setObject(decompressedImage, forKey: url as AnyObject, cost: 1)
         decodedImageCache.setObject(image as AnyObject, forKey: url as AnyObject, cost: decompressedImage.diskSize)
